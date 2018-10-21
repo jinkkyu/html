@@ -1,0 +1,120 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>영화예매사이트</title>
+<link rel="stylesheet" type="text/css" href="style-size.css"/> <!-- 사이즈관련 스타일시트 불러옴 -->
+<link rel="stylesheet" type="text/css" href="style-layout.css"/> <!-- 레이아웃관련 스타일시트 불러옴 -->
+<link rel="stylesheet" type="text/css" href="style-presentation.css"/> <!-- 프레젠테이션관련 스타일시트 불러옴 -->
+<link rel="stylesheet" type="text/css" href="style-menu.css"/> <!-- 메뉴관련 스타일시트 불러옴 -->
+<link rel="stylesheet" type="text/css" href="style-slider.css"/> <!-- 슬라이드관련 스타일시트 불러옴 -->
+<script type="text/javascript">
+function open_win() //팝업창 불러오는 함수
+{
+	window.open("popup.html",'_blank', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=auto, resizable=no, directories=no, width=450, height=450, top=100, left=100')
+}
+</script>
+</head>
+<body onload="javascript:open_win();"> <!-- open_win함수 호출 -->
+<div class="wrap">
+<header>
+    <a id="logo" href="main.html"><img src="images\/logo.png" height="32" alt="로고"> 영화예매 </a>
+    <span class="right" style="padding: 30px 10px;">
+    <!-- 이미지나 영화예매를 누르면 main페이지로 이동 -->
+        <a href="login.html" target="display_area">로그인</a>
+         <!-- 로그인페이지를 area에 불러옴 --> 
+        <a href="signup.html" target="_blank">회원가입</a>
+         <!-- 회원가입페이지를 새창으로 불러옴 -->
+    </span>
+</header>
+
+<nav>
+    <ul>
+    
+        <li><a href="main.html" >영화홈</a></li> 
+        <!-- 메뉴를 클릭하면 영화홈페이지를 불러옴 -->
+        <li class="dropdown"><a href="nowshow.html" target="display_area">상영작·예정작</a>
+        <!-- 메뉴를 클릭하면 현재 상영영화페이지를 area에 불러옴 -->
+        <div class="content">
+        <a href="nowshow.html" target="display_area">현재 상영영화</a>
+        <!-- 서브메뉴를 클릭하면 현재 상영영화페이지를 area에 불러옴 -->
+        <a href="aftershow.html" target="display_area">개봉 예정영화</a>
+        <!-- 서브메뉴를 클릭하면 개봉 예정영화페이지를 area에 불러옴 -->
+        </div></li>
+
+
+        <li class="dropdown"><a href="movie_order.html" target="display_area">예매하기</a>
+        <!-- 메뉴를 클릭하면 예매하기페이지를 area에 불러옴 -->
+      <div class="content">
+        <a href="movie_order.html" target="display_area">예매하기</a>
+        <!-- 서브메뉴를 클릭하면 예매하기페이지를 area에 불러옴 -->
+        <a href="sidemenu.html" target="display_area">스낵코너</a>
+        <!-- 서브메뉴를 클릭하면 스낵코너페이지를 area에 불러옴 -->
+        </div></li>
+
+        <li class="dropdown"><a href="place.html" target="display_area">영화관</a>
+        <!-- 메뉴를 클릭하면 영화관페이지를 area에 불러옴 -->
+         <div class="content">
+
+        </div>
+        </li>
+        <li class="dropdown"><a href="review.html" target="display_area">커뮤니티</a>  
+        <!-- 메뉴를 클릭하면 리뷰페이지를 area에 불러옴 -->  
+        <div class="content">
+        <a href="review.html" target="display_area">리뷰</a>
+        <!-- 서브메뉴를 클릭하면 리뷰페이지를 area에 불러옴 -->
+        </div>
+        <li class="dropdown"><a href="frameanimataion.html" target="display_area">잡동사니</a>
+        <!-- 메뉴를 클릭하면 이미지프레임페이지를 area에 불러옴 -->        
+         <div class="content">
+        <a href="frameanimataion.html" target="display_area">이미지프레임</a>
+         <!-- 서브메뉴를 클릭하면 이미지프레임페이지를 area에 불러옴 -->   
+        <a href="ranking.html" target="display_area">실시간검색어</a>
+         <!-- 서브메뉴를 클릭하면 실시간검색어페이지를 area에 불러옴 -->   
+        <a href="d-day.html" target="display_area">디데이계산기</a>
+         <!-- 서브메뉴를 클릭하면 디데이계산기페이지를 area에 불러옴 -->   
+        </div>
+        </li>
+</nav>
+
+<hr/>
+
+<article class="left">
+    <iframe name="display_area" src="image_slider.html" seamless="true"
+            width="600px" height="500px"></iframe>
+             <!-- 이미지슬라이더페이지를 area에 불러옴 -->   
+</article>
+
+<aside class="right">
+    <button id="save_favorite" style="width:85px" disabled>빠른예매</button><br/>
+    <button id="view_favorite" style="width:85px" disabled>예매내역</button><br/>
+    <button id="memo" style="width:85px" disabled>메모하기</button><br/>
+    <button id="location" style="width:85px" disabled>현재위치</button>
+</aside>
+
+<hr/>
+
+<footer>  
+   <div id="copyright">
+       Copyright (c) 2016 영화예매사이트 Inc. All rights reserved
+   </div>
+   <div id="SNS">
+       <a href="http://facebook.com" target="_blank">
+        <!--이미지를 클릭하면 페이스북페이지를 새창에 불러옴 -->   
+           <img src="images/facebook.gif" height="32" alt="Facebook">
+       </a>
+       <a href="http://twitter.com" target="_blank">
+           <img src="images/twitter.gif" height="32" alt="Twitter">
+           <!--이미지를 클릭하면 클릭하면 트위터페이지를 새창에 불러옴 -->
+       </a>
+       <a href="http://plus.google.com" target="_blank">
+           <img src="images/googleplus-icon.png" height="32" alt="Google Plus">
+           <!--이미지를 클릭하면 구글플러스페이지를 새창에 불러옴 -->
+       </a>
+    </div>
+</footer>
+</div>
+<script type="text/javascript" src="main.js"></script>
+<!-- main자바스크립트 호출 -->
+</body>
+</html>

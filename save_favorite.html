@@ -1,0 +1,67 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> Save Favorite Books </title>
+<link rel="stylesheet" type="text/css" href="style-size.css"/> 
+<link rel="stylesheet" type="text/css" href="style-layout.css"/>
+<link rel="stylesheet" type="text/css" href="style-presentation.css"/>
+
+<script type="text/javascript">
+    function save_favorite() { /*localStorage함수 정의*/
+        var localStorage = window.localStorage;
+        if (!localStorage) {
+            // local storage is not supported by this browser.
+            // do nothing
+        }
+        else {
+            dom = document.getElementsByTagName("span"); /*span일 경우 체크가 되면 localStorage에 해당내용을 저장*/
+                var j = 0;
+            for(i=0;i<dom.length;i++) {
+                if (dom[i].firstChild.checked == true) {
+                    localStorage[j] = dom[i].innerText;
+                    j++;
+                }
+            }
+            localStorage.numFavorites = j;
+        }
+    }
+</script>
+
+</head>
+<body class="booklist"> <!-- body에 내용을 입력한다. -->
+  <p class="head"> 빠른예매 </p>
+  <form>
+  <ul>
+      <li><span><input type="checkbox"/>
+      <img src="images/가려진시간.jpg"/><br/>가려진시간<br/>
+             장르 : 드라마,판타지 | 129분 | 2016.11.16개봉<br/>
+             감독 : 엄태화<br/>
+             출연 : 강동원,신은수,이효제<br/></span></li>
+      <li><span><input type="checkbox"/>
+      <img src="images/신비한동물사전.jpg"/><br/>
+      신비한 동물사전<br/>
+             장르 : 판타지,모험 | 132분 | 2016.11.16개봉<br/>
+             감독 : 데이빗 예이치<br/>
+             출연 : 에디 레드메인, 콜린 파렐, 캐서린 워터스턴,앨리슨 수돌</span><li>
+      <li><span><input type="checkbox"/>
+      <img src="images/형.jpg"/><br/>
+      형<br/>
+             장르 : 코미디,드라마 | 110분 | 2016.11.23개봉<br/>
+             감독 : 권수경<br/>
+             출연 : 조정석,디오,박신혜</span></li>
+      <li><span><input type="checkbox"/><img src="images/라라랜드.jpg"/><br/>
+       라라랜드<br/>
+             장르 : 드라마, 뮤지컬,멜로/로맨스 | 127분 | 2016.12.07개봉<br/>
+             감독 : 다미엔 차젤레<br/>
+             출연 : 라이언 고슬링,엠마 스톤</span></li>
+      <li><span><input type="checkbox"/><img src="images/아기배달부스토크.jpg"/><br/>
+      아기배달부 스토크<br/>
+             장르 : 애니메이션,코미디,가족 | 87분 | 2016.12.07개봉<br/>
+             감독 : 니콜라스 스톨러, 더그 스윗랜드<br/>
+             출연 : 앤디 샘버그,켈시 그래머</span></li>
+   
+  </form>
+  <button onclick="save_favorite();"> 예매하기 </button> <!--버튼을 실행하면 save_favorite함수를 불러온다. -->
+</body>
+</html>

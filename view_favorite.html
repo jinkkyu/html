@@ -1,0 +1,33 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> View Favorite Books </title>
+<link rel="stylesheet" type="text/css" href="style-size.css"/>
+<link rel="stylesheet" type="text/css" href="style-layout.css"/>
+<link rel="stylesheet" type="text/css" href="style-presentation.css"/>
+
+<script type="text/javascript">
+    function view_favorite() { /*view_favorite함수정의*/
+        var localStorage = window.localStorage;
+        if (!localStorage) {
+            // local storage is not supported by this browser.
+            // do nothing
+        }
+        else {
+            var numFavorites = localStorage.numFavorites;       //localStorage에 저장된 내용을 불러온다.
+            var dom = document.getElementById("favorite_list"); 
+            for(i=0;i<numFavorites;i++) {
+                dom.innerHTML = dom.innerHTML + "<li>" + localStorage[i] + "</li>\n";
+            }
+        }
+    }
+</script>
+
+</head>
+<body class="booklist" onload = "view_favorite();"> <!-- body에 view_favorite함수를 실행한다. -->
+    <p class="head"> 예매내역 </p>
+    <ol id="favorite_list">
+    </ol>
+</body>
+</html>

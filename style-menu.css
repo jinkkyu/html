@@ -1,0 +1,8 @@
+ul{ list-style: none; margin: 0;padding: 0; background: #999; overflow: hidden; }
+li {float: left;}
+li a{padding: 14px 16px; display: inline-block;text-decoration: none;color: #FFF;}
+li a:hover{background: red;}
+.content {background: #f9f9f9; position: absolute;min-width: 160px; box-shadow: 0 8px 15px #CCC; display: none;}
+.content a{ dispaly: block; color: #333;}
+.content a:hover {background: #ccc;}
+.dropdown:hover .content{display: block;}

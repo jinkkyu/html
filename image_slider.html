@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>jQuery 슬라이드</title>
+
+<link rel="stylesheet" type="text/css" href="style-size.css"/>
+<link rel="stylesheet" type="text/css" href="style-layout.css"/>
+<link rel="stylesheet" type="text/css" href="style-presentation.css"/>
+<link rel="stylesheet" type="text/css" href="style-slider.css"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+jQuery(document).ready(function() {
+	
+	// 슬라이드의 전체 개수를 구한다.
+	var slideMax = jQuery(".control_button").length;
+
+	// 슬라이드 이미지 좌우 이동버튼
+	function moveArrow(sum) {
+
+		var num = jQuery(".active").index();
+		var idx = jQuery(".active").index() + sum;
+
+		if(idx < 0) { idx = slideMax; }
+		if(idx >= slideMax) { idx = 0; }
+
+		moveSlider(idx);
+	}
+
+	// 슬라이드를 움직여주는 함수
+	function moveSlider(index) {
+
+		// 슬라이드를 이동합니다.
+		var willMoveLeft = -(index * 600);
+		jQuery(".slider_panel").animate({ left: willMoveLeft }, "slow");
+
+		// control_button에 active클래스를 부여/제거합니다.
+		jQuery(".control_button[data-index=" + index + "]").addClass("active");
+		jQuery(".control_button[data-index!=" + index + "]").removeClass("active");
+
+			// 글자를 이동합니다.
+			jQuery(".slider_text[data-index=" + index + "]").show().animate({
+				left : 0
+			}, "slow");
+			jQuery(".slider_text[data-index!=" + index + "]").hide("slow", function() {
+				jQuery(this).css("left", -300);
+			});
+		}
+
+		// 초기 텍스트 위치 지정 및 data-index 할당
+		jQuery(".slider_text").css("left", -300).each(function(index) {
+			jQuery(this).attr("data-index", index);
+		});
+
+		// 좌우 슬라이드 넘김 버튼
+		jQuery("#leftMove").on("click", function() { moveArrow(-1) });
+		jQuery("#rightMove").on("click", function() { moveArrow(1) });
+
+		// 컨트롤 버튼의 클릭 핸들러 지정 및 data-index 할당
+		jQuery(".control_button").each(function (index) {
+			jQuery(this).attr("data-index", index);
+		}).click(function () {
+			var index = jQuery(this).attr("data-index");
+			moveSlider(index);
+		});
+
+		// 초기 슬라이드의 위치 지정
+		var randomNumber = Math.round(Math.random() * slideMax);
+		moveSlider(randomNumber);
+			
+		// 5초마다 한번씩 슬라이드를 자동으로 다음 페이지로 넘긴다.
+		setInterval(function() {
+			moveArrow(1);
+		}, 5000);
+	});
+</script>
+</head>
+<body style="text-align:center;">
+	<div class="slide_board">
+		<div class="slide_section" id="leftMove">
+			<div class="move_arrow">◀</div>
+		</div>
+		<div class="animation_canvas">
+			<div class="slider_panel">
+				<a href="images/영화순위1.png" target="_blank"><img class="slider_image" src="images/영화순위1.png"></a>
+				<a href="images/영화순위2.png" target="_blank"><img class="slider_image" src="images/영화순위2.png"></a>
+				<a href="images/영화순위3.png" target="_blank"><img class="slider_image" src="images/영화순위3.png"></a>
+				<a href="images/영화순위4.png" target="_blank"><img class="slider_image" src="images/영화순위4.png"></a>
+				<a href="images/영화순위5.png" target="_blank"><img class="slider_image" src="images/영화순위5.png"></a>
+
+			</div>
+			<div class="control_panel">
+				<div class="control_button">1</div>
+				<div class="control_button">2</div>
+				<div class="control_button">3</div>
+				<div class="control_button">4</div>
+				<div class="control_button">5</div>
+			</div>
+		</div>
+		<div class="slide_section" id="rightMove">
+			<div class="move_arrow">▶</div>
+		</div>
+	</div>
+</body>
+</html>

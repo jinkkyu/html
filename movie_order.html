@@ -1,0 +1,176 @@
+<html>
+    <head>
+ <meta charset="utf-8">
+        <title>영화예매</title>
+
+    </head>
+
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                  
+                //초기화
+                //라디오버튼
+                $("input:radio[name='book_type'][value='magazine']").prop('checked', true);
+                //체크박스
+                $("input:checkbox[name='sale_yn']").prop("checked", true);
+                //셀렉트박스
+                $("select[name='payment_type']").val("card").attr("selected", "selected");
+                  
+                //결과확인
+                $("#check").click(function(){
+              
+                    alert("영화: "+$("select[id='movie_name'] option:selected").val());
+                    alert("상영일자: "+$("select[id='movie_date'] option:selected").val());
+                    alert("상영시간: "+$("select[id='movie_time'] option:selected").val());
+                    alert("상영관: "+$("select[id='movie_place'] option:selected").val());
+                    alert("인원 & 가격: "+$("select[id='person'] option:selected").val());
+                    alert("할인여부: "+$("select[id='sale'] option:selected").val());             
+                });
+            });
+        </script>
+<body>
+     
+    <center>영화예매</center>
+    <center>
+ 
+    <form name ='ENG' method='post' action='eng1.php'</center>
+    <table width='350' border = 1 >
+        <tr>
+                <td width='20%'><center>영화선택</center></td>
+ 
+            <td>
+ 
+                <SELECT id="movie_name">  <!--셀렉트박스의 이름은 Combo 입니다. 기억해두세요.-->
+ 
+                <option selected>영화선택</option>
+ 
+                <option value="가려진시간">가려진시간</option>
+ 
+                <option value="신비한 동물사전">신비한 동물사전</option>
+
+                <option value="형">형</option>
+
+                <option value="라라랜드">라라랜드</option>
+
+                <option value="아기배달부 스토크">아기배달부 스토크</option>
+
+                <option value="미씽:사라진 여자">미씽:사라진 여자</option>
+ 
+             </select>
+ 
+             </td>
+ 
+            </tr>
+ 
+        <tr>
+            <td width='20%'><center>상영일자</center></td>
+            <td>
+           <select name="test" id="movie_date">  
+                <option selected>상영일자선택</option>
+                <option value="12월 25일">12월 25일</option>
+                <option value="12월 26일">12월 26일</option>
+                <option value="12월 27일">12월 27일</option>
+                <option value="12월 28일">12월 28일</option>
+
+ 
+             </select>
+ </td>
+        </tr>
+        <tr>
+            <td width='20%'><center>상영시간</center></td>
+            <td>
+            <select name="test" id="movie_time">  
+                <option selected>상영시간선택</option>
+                <option value="아침(06:00~12:00)">아침(06:00~12:00)</option>
+                <option value="점심(12:00~17:00)">점심(12:00~17:00)</option>
+                <option value="저녁(17:00~22:00)">저녁(17:00~22:00)</option>
+                <option value="심야(22:00~06:00)">심야(22:00~06:00)</option>
+                
+
+ 
+             </select>
+</td> 
+        </tr>
+      <tr>
+            <td width='20%'><center>상영관선택</center></td>
+            <td>
+                <select name="test" id="movie_place">  
+                <option selected>상영관선택</option>
+                <option value="CGV명동">CGV명동</option>
+                <option value="CGV범계">CGV범계</option>
+                <option value="CGV인천논현">CGV인천논현</option>
+                <option value="CGV천안">CGV천안</option>
+                <option value="CGV제주">CGV제주</option>
+
+ 
+             </select>
+ 
+             </td>
+
+              <tr>
+ 
+            <td width='20%'><center>인원선택</center></td>
+ 
+            <td>
+ 
+                <SELECT NAME="option" id="person" >  
+ 
+                <option selected>인원수선택</option>
+ 
+                <option value="1명(8000원)">1명</option>
+ 
+                <option value="2명(16000원)">2명</option>
+
+                <option value="3명(24000원)">3명</option>
+
+                <option value="4명(32000원)">4명</option>
+
+                <option value="5명(40000원)">5명</option>
+ 
+             </select>
+ 
+             </td>
+ 
+            <tr>
+                <td width='20%'><center>할인선택</center></td>
+ 
+            <td>
+ 
+                <SELECT NAME="payment_type" id="sale">  
+ 
+                <option selected>할인정보선택</option>
+ 
+                <option value="조조할인(20%할인)">조조할인(20%할인)</option>
+ 
+                <option value="사랑티켓(25%할인)">사랑티켓(25%할인)</option>
+
+                <option value="문화의날(50%할인)">문화의날(50%할인)</option>
+ 
+             </select>
+ 
+             </td>
+ 
+            </tr>
+ 
+ <tr>
+ 
+            <td width='20%'><center>좌석</center></td>
+ 
+            <td width='80'><input type="text" type='button' onclick="window.open('seat.html','','resizable=no width=600 height=600')")" value="좌석선택" name='test' size='25'> </td>
+ 
+        </tr>
+ 
+        <tr>
+ 
+           
+    </table>     
+ 
+            <input id="check" type='button' value='예매하기' onclick='save_favorite();'>
+ 
+</body>
+ 
+  
+ 
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8"/>
+
+    <title>Frame Animation</title>
+
+<link rel="stylesheet" type="text/css" href="style-size.css"/>
+<link rel="stylesheet" type="text/css" href="style-layout.css"/>
+<link rel="stylesheet" type="text/css" href="style-presentation.css"/>
+
+    <script>
+        window.onload = function () {
+            // 변수선언
+            var count = 0;
+            var image = document.getElementById('image');
+            var frames = [
+                '0.png', '1.png', '2.png', '3.png', '4.png',
+                '5.png', '6.png', '7.png', '8.png', '9.png',
+                '10.png', '11.png', '12.png', '13.png', '14.png',
+            ];
+            // 타이머 반복을 시작
+            setInterval(function () {
+                image.src = frames[count % frames.length];
+                count = count + 1;
+            }, 50);
+        };
+//setInterval함수로 특정한 시간마다 함수를 실행하게하여 움직이는 애니메이션 생성
+    </script>
+</head>
+<body>
+    <img id="image"/>
+</body>
+</html>
